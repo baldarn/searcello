@@ -39,6 +39,16 @@ let vm = {
 	del : function(){
 		vm.data.splice(this.getAttribute('data-id'), 1);
 		localStorage.setItem(SEARCHES, JSON.stringify(vm.data));
+	},
+
+	info : function(){
+		// show info
+
+		let info = "\
+To add a search just type it in the input box and press enter!\n\n\
+To do the search click on the item of the list";
+
+		alert(info);
 	}
 };
 
@@ -52,8 +62,11 @@ rivets.bind(document.getElementById('scope') , {vm : vm});
 document.getElementById('search').addEventListener('keydown' ,
 	function(e){
 		if (e.keyCode === 13) { // enter
+			if(this.value != null && this.value != ''){
+				console.log('val ', this.value);
 				addItem(this.value);
         this.value = '';
+			}
     }
 	});
 
