@@ -47,8 +47,9 @@
 		<ul style="list-style-type: none; padding : 0px;">
 			<li rv-each-item="vm.data" rv-on-click="vm.search" rv-data-id="%item%">
 			    <span style="vertical-align: middle; padding:2px">{item}</span>
-                <button rv-on-click="vm.del" class="fa fa-trash" rv-data-id="%item%" style="float : right;"></button>
-                <button rv-on-click="vm.edit" class="fa fa-edit" rv-data-id="%item%" style="float : right;"></button>
+          <button rv-on-click="vm.del" class="fa fa-trash" rv-data-id="%item%" style="float : right;"></button>
+          <button rv-on-click="vm.edit" class="fa fa-edit" rv-data-id="%item%" style="float : right;"></button>
+          <div style="clear:both;"></div>
 			</li>
 		<ul>
 
