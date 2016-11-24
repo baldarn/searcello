@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Serchello</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+				width : 500px;
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"></link>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+  </head>
+  <body id="scope">
+		<h1 style="text-align : center;">Searcello</h1>
+    <textarea id="search" type="search" style="width : 100%" rows="4"></textarea>
+		<ul style="list-style-type: none; padding : 0px;">
+			<li rv-each-item="vm.data">
+        {item}
+        <button rv-on-click="vm.del" class="fa fa-trash" rv-data-id="%item%" style="float : right;"></button>
+        <button rv-on-click="vm.search" class="fa fa-search" rv-data-id="%item%" style="float : right;"></button>
+        <button rv-on-click="vm.edit" class="fa fa-edit" rv-data-id="%item%" style="float : right;"></button>
+        <hr>
+			</li>
+		<ul>
+
+  </body>
+  <script src="rivets.bundled.min.js"></script>
+  <script src="script.js"></script>
+  <!-- <script src="init.js"></script> -->
+</html>
