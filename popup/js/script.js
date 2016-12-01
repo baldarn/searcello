@@ -2,6 +2,8 @@ const SEARCHES = 'searches';
 
 let searches = JSON.parse(localStorage.getItem(SEARCHES));
 
+var browser = chrome;
+
 if(searches == null){
 	searches = [];
 }
@@ -12,22 +14,21 @@ let vm = {
 	search : function(){
 		// delete field
 		let script = "$('.header-search-input').val('')";
-		chrome.tabs.executeScript({
+		browser.tabs.executeScript({
 	  	  code: script
 	  });
 
 		// search
 		let src =	searches[this.getAttribute('data-id')];
 		script = '$(".header-search-input").sendkeys(' + JSON.stringify(src) +')';
-		chrome.tabs.executeScript({
+		browser.tabs.executeScript({
 	  	  code: script
 	  });
 	},
 
 	edit : function(){
 		let idx = this.getAttribute('data-id');
-		console.log(vm.data);
-		let temp = prompt("modify " + idx, vm.data[idx]) || vm.data[idx];
+		let temp = prompt("modify ", vm.data[idx]) || vm.data[idx];
 		vm.data[idx] = temp;
 
 		// trik to update rivetsjs
@@ -63,24 +64,22 @@ document.getElementById('search').addEventListener('keydown' ,
 	function(e){
 		if (e.keyCode === 13) { // enter
 			if(this.value != null && this.value != ''){
-				console.log('val ', this.value);
 				addItem(this.value);
         this.value = '';
 			}
     }
 	});
 
-	chrome.tabs.executeScript({
-			code: "inited"
+	browser.tabs.executeScript({
+			code: "if (typeof inited === 'undefined') {}"
 	}, function(res){
-		console.log(res);
 		if(!res[0]){
-			chrome.tabs.executeScript({
+			browser.tabs.executeScript({
 					code: "var inited = true;"
 			});
-			chrome.tabs.executeScript(null, { file: "jquery-3.1.1.min.js" }, function() {
-				chrome.tabs.executeScript(null, { file: "bililiteRange.js" } , function() {
-					chrome.tabs.executeScript(null, { file: "jquery.sendkeys.js" }, function(){
+			browser.tabs.executeScript(null, { file: "/popup/js/jquery-3.1.1.min.js" }, function() {
+				browser.tabs.executeScript(null, { file: "/popup/js/bililiteRange.js" } , function() {
+					browser.tabs.executeScript(null, { file: "/popup/js/jquery.sendkeys.js" }, function(){
 					});
 				});
 			});
