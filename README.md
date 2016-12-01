@@ -1,4 +1,4 @@
-# Searchello
+# Searcello
 
 A chrome/firefox extension that helps with the Trello searches.
 
