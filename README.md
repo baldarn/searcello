@@ -2,6 +2,12 @@
 
 A chrome/firefox extension that helps with the Trello searches.
 
+# Install
 
-TODO:
-* save remotely, so your searches will be there from all your computers!
+* Chrome
+
+use this [link](https://github.com/baldarn/searcello/raw/master/searcello.crx)
+
+* Firefox
+
+TODO
