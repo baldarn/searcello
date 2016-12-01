@@ -16,5 +16,11 @@
   },
   "permissions": [
     "activeTab"
-  ]
+  ],
+
+  "applications": {
+    "searcello": {
+      "id": "lorenzo.farnararo@gmail.com"
+    }
+  }
 }
